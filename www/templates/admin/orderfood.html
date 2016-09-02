@@ -1,0 +1,70 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">订餐-订餐者:{{ users[orderUserIndex].userinfo.name }}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeOrderFood()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        早餐
+      </div>
+      <div class="item item-text-wrap">
+        <span>{{ orderData.date }}日早餐</span><span class="badge badge-calm">{{ menus[0].value }}元</span>
+        <span style="display: block">订早餐状态:{{ orderInfos.breakfast }}</span>
+        <form ng-submit="doOrderBreakfast()">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">份数</span>
+              <input type="text" ng-model="orderData.breakfast">
+            </label>
+            <label class="item">
+              <button class="button button-block button-positive" type="submit">订早餐</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        午餐
+      </div>
+      <div class="item item-text-wrap">
+        <span>{{ orderData.date }}日午餐</span><span class="badge badge-calm">{{ menus[1].value }}元</span>
+        <span style="display:block;">订午餐状态:{{ orderInfos.lunch }}</span>
+        <form ng-submit="doOrderLunch()">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">份数</span>
+              <input type="text" ng-model="orderData.lunch">
+            </label>
+            <label class="item">
+              <button class="button button-block button-positive" type="submit">订午餐</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        晚餐
+      </div>
+      <div class="item item-text-wrap">
+        <span>{{ orderData.date }}日晚餐</span><span class="badge badge-calm">{{ menus[2].value }}元</span>
+        <span style="display: block">订晚餐状态:{{ orderInfos.dinner }}</span>
+        <form ng-submit="doOrderDinner()">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">份数</span>
+              <input type="text" ng-model="orderData.dinner">
+            </label>
+            <label class="item">
+              <button class="button button-block button-positive" type="submit">订晚餐</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

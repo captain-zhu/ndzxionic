@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">为用户充值-{{users[depositUserIndex].userinfo.name}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeDepositForUser()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doDepositForUser()">
+      <p class="text-center" style="margin-top: 1.5em;">当前金币数:{{ users[depositUserIndex].gold }}</p>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">金额</span>
+          <input type="text" ng-model="depositorder.value">
+        </label>
+        <label class="item">
+          <button class="button button-block button-royal" type="submit">确定充值</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

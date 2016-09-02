@@ -1,0 +1,25 @@
+<ion-view view-title="订单历史和管理">
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-search"
+              ng-click="searchOrders()"></button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item ng-repeat="order in orders | filter:search | orderBy: 'date' : true "">
+        <h2>{{order.user.userinfo.name }}</h2>
+        <p style="display: inline-block">单价:{{ order.single_value }}</p>
+        <p style="display: inline-block; float: right">数量:{{ order.count }}</p>
+        <p></p>
+        <p style="display: inline-block" ng-if="order.order == '1'">早餐</p>
+        <p style="display: inline-block" ng-if="order.order == '2'">午餐</p>
+        <p style="display: inline-block" ng-if="order.order == '3'">晚餐</p>
+        <p style="display: inline-block; float: right">日期:{{ order.date }}</p>
+        <span class="badge badge-calm">{{ order.whole_value }}元</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

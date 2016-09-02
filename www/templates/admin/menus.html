@@ -1,0 +1,49 @@
+<ion-view view-title="菜单与菜品管理">
+  <div class="tabs-striped tabs-color-royal">
+    <ul class="tabs">
+      <li ng-class="{active:isSelected(1)}" class="tab-item">
+        <a ng-click="select(1)">早餐</a></li>
+      <li ng-class="{active:isSelected(2)}" class="tab-item">
+        <a ng-click="select(2)">午餐</a></li>
+      <li ng-class="{active:isSelected(3)}" class="tab-item">
+        <a ng-click="select(3)">晚餐</a></li>
+    </ul>
+  </div>
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-plus-empty"
+              ng-click="showAddDish()"></button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        <h2 ng-if="isSelected(1)">早餐菜单</h2>
+        <h2 ng-if="isSelected(2)">午餐菜单</h2>
+        <h2 ng-if="isSelected(3)">晚餐菜单</h2>
+      </div>
+      <div class="item item-text-wrap">
+        <p style="display: inline-block">价格:{{ menus[tab -1].value }}</p>
+        <a style="display:inline-block;float: right;font-size: 0.86em;" ng-click="changeValue()">修改价格</a>
+        <p></p>
+        <p style="display: inline-block">订餐开始时间:{{ menus[tab -1].dinner.start_time }}</p>
+        <a style="display:inline-block;float: right;font-size: 0.86em;" ng-click="changeStartTime()">修改开始时间</a>
+        <p></p>
+        <p style="display: inline-block">订餐结束时间:{{ menus[tab -1].dinner.end_time}}</p>
+        <a style="display:inline-block;float: right;font-size: 0.86em;" ng-click="changeEndTime()">修改结束时间</a>
+        <p style="display: inline-block" ng-if="menus[tab -1].dinner.state == 0">订餐状态：可以订餐</p>
+        <p style="display: inline-block" ng-if="menus[tab -1].dinner.state == 1">订餐状态：暂停订餐</p>
+        <a style="display:inline-block;float: right;font-size: 0.86em;" ng-click="toggleState(menus[tab -1].dinner.state)">改变订餐状态</a>
+        <ion-list>
+          <ion-item ng-repeat="dish in menus[tab -1].dishes">
+            <h3>{{ dish.name }}</h3>
+            <p>{{ dish.description }}</p>
+            <span class="badge badge-assertive">{{ dish.peppery_degree }}</span>
+            <ion-option-button class="button-positive" ng-click="showEditDish($index)">编辑</ion-option-button>
+            <ion-option-button class="button-calm" ng-click="showDeleteDish($index)">删除</ion-option-button>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

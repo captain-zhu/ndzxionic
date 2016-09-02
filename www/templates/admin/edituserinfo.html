@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">编辑用户信息-{{priorUser.userinfo.name}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeEditUser()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doEditUserInfo()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">用户名</span>
+          <input type="text" ng-model="users[editUserIndex].userinfo.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">手机号码</span>
+          <input type="text" ng-model="users[editUserIndex].userinfo.telephone">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">用户分组</span>
+          <input type="text" ng-model="users[editUserIndex].privilege">
+        </label>
+        <label class="item">
+          <button class="button button-block button-royal" type="submit">确定编辑</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

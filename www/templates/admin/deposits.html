@@ -1,0 +1,23 @@
+<ion-view view-title="充值历史和管理">
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-search"
+              ng-click="searchDeposits()"></button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item ng-repeat="deposit in deposits | filter:search | searchDatetimeFromDate: searchDate | orderBy: 'created_at' : true "">
+        <h2>{{deposit.user.userinfo.name }}</h2>
+        <p class="col col-50" ng-if="deposit.type == '0'">管理员充值</p>
+        <p class="col col-50" ng-if="deposit.type == '1'">微信充值</p>
+        <p class="col col-50" ng-if="deposit.type == '0'">管理员:{{ deposit.admin.username }}</p>
+        <p class="col col-50" ng-if="deposit.type == '1'">订单号:{{ deposit.transactionid }}</p>
+        <span class="badge badge-calm">{{ deposit.value }}元</span>
+        <p>充值日期:{{ deposit.created_at }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

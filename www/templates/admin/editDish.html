@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">编辑菜品信息</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeEditDish()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doEditDish()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">菜名</span>
+          <input type="text" ng-model="editDishData.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">辣度</span>
+          <select class="form-control"
+                  ng-model="editDishData.peppery_degree"
+                  ng-options="degree.value as degree.label for degree in degreeData">
+            <option value="">选择辣味程度</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">描述</span>
+          <input type="text" ng-model="editDishData.description">
+        </label>
+        <label class="item">
+          <button class="button button-block button-royal" type="submit">确定编辑</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

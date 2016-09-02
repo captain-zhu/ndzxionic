@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">为全组充值</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeDepositForGroup()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doDepositForGroup()">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            选择分组
+          </div>
+          <select ng-model="groupOrder.mygroup"
+                  ng-options="group.value as group.label for group in groups">
+            <option value="">选择分组</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">金额</span>
+          <input type="text" ng-model="groupOrder.value">
+        </label>
+        <label class="item">
+          <button class="button button-block button-royal" type="submit">确定充值</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

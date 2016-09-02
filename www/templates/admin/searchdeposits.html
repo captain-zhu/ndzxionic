@@ -1,0 +1,42 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-royal">
+    <h1 class="title">搜索充值</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSearch()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doSearchDeposits()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">关键字</span>
+          <input type="text" ng-model="search.$">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">用户名</span>
+          <input type="text" ng-model="search.user.userinfo.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">金额</span>
+          <input type="text" ng-model="search.value">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">日期</span>
+          <input type="date" ng-model="searchDate.tempDate">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            选择充值方式
+          </div>
+          <select ng-model="search.type"
+                  ng-options="dipositMethod.value as dipositMethod.label for dipositMethod in dipositMethods">
+            <option value="">选择充值方式</option>
+          </select>
+        </label>
+        <label class="item">
+          <button class="button button-block button-royal" type="submit">确定</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
